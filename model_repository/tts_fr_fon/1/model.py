@@ -10,12 +10,15 @@ class TritonPythonModel:
     Modèle TTS pour traduire du français vers le fon et générer l'audio.
     """
     
-    def initialize(self):
+    def initialize(self, args):
         """
         Initialise les modèles de traduction et de synthèse vocale.
+        
+        Args:
+            args (dict): Dictionnaire contenant la configuration du modèle
         """
         # Récupérer la configuration du modèle
-        # self.model_config = json.loads(args['model_config'])
+        self.model_config = json.loads(args['model_config'])
         
         # Déterminer le device (GPU si disponible)
         self.device = 0 if torch.cuda.is_available() else -1
